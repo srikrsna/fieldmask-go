@@ -76,6 +76,13 @@ func (f All) N() Nested {
 	return Nested(string(f) + "." + "n")
 }
 
+func (f All) M() Map {
+	if f == "" {
+		return "m"
+	}
+	return Map(string(f) + "." + "m")
+}
+
 var RepeatedMask = Repeated("")
 
 // Repeated is the field mask for Repeated
@@ -795,13 +802,6 @@ var SingularMask = Singular("")
 // Singular is the field mask for Singular
 type Singular string
 
-func (f Singular) Mp() string {
-	if f == "" {
-		return "mp"
-	}
-	return string(string(f) + "." + "mp")
-}
-
 func (f Singular) E() string {
 	if f == "" {
 		return "e"
@@ -919,6 +919,53 @@ func (f Singular) Msg() Message {
 		return "msg"
 	}
 	return Message(string(f) + "." + "msg")
+}
+
+var MapMask = Map("")
+
+// Map is the field mask for Map
+type Map string
+
+func (f Map) En() string {
+	if f == "" {
+		return "en"
+	}
+	return string(string(f) + "." + "en")
+}
+
+func (f Map) Msg() string {
+	if f == "" {
+		return "msg"
+	}
+	return string(string(f) + "." + "msg")
+}
+
+func (f Map) Str() string {
+	if f == "" {
+		return "str"
+	}
+	return string(string(f) + "." + "str")
+}
+
+func (f Map) By() string {
+	if f == "" {
+		return "by"
+	}
+	return string(string(f) + "." + "by")
+}
+
+func (f Map) Bo() string {
+	if f == "" {
+		return "bo"
+	}
+	return string(string(f) + "." + "bo")
+}
+
+func (f Map) An() string {
+	if f == "" {
+		return "an"
+	}
+	return string(string(f) + "." + "an")
 }
 
 var NestedMask = Nested("")
